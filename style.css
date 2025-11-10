@@ -2281,3 +2281,632 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ===================================================================
+   ENHANCED LOGO & BRANDING - THE EXPRESS EATERY
+   Author: Lokesh Bhatta
+   Date: 2025-11-10
+   Focus: Bigger Logo, Premium Branding, Visual Hierarchy
+   =================================================================== */
+
+/* ===================================================================
+   PREMIUM NAVIGATION WITH LARGE LOGO
+   =================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 12px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 
+        0 10px 40px rgba(102, 126, 234, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 60px;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.15);
+}
+
+/* ===================================================================
+   LARGE, PROMINENT LOGO WITH BRANDING
+   =================================================================== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1001;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo Glow Background Effect */
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(
+        circle, 
+        rgba(102, 126, 234, 0.25) 0%, 
+        rgba(118, 75, 162, 0.15) 40%, 
+        transparent 70%
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: scale(0.95);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.logo:hover::before {
+    opacity: 1;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Large Logo Image */
+.logo-img {
+    height: 85px;
+    width: auto;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: 
+        drop-shadow(0 6px 20px rgba(102, 126, 234, 0.4))
+        drop-shadow(0 0 40px rgba(102, 126, 234, 0.2))
+        brightness(1.05);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+nav.scrolled .logo-img {
+    height: 70px;
+    filter: 
+        drop-shadow(0 4px 15px rgba(102, 126, 234, 0.35))
+        drop-shadow(0 0 30px rgba(102, 126, 234, 0.15))
+        brightness(1.05);
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.08) rotate(-3deg);
+    filter: 
+        drop-shadow(0 8px 30px rgba(102, 126, 234, 0.6))
+        drop-shadow(0 0 60px rgba(102, 126, 234, 0.4))
+        brightness(1.1);
+}
+
+/* Logo Image Animation on Load */
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-180deg);
+    }
+    60% {
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.logo-img {
+    animation: logoEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================================================
+   PREMIUM BRAND TEXT (Add next to logo)
+   =================================================================== */
+.brand-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+}
+
+.brand-name {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+    transition: all 0.4s ease;
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+nav.scrolled .brand-name {
+    font-size: 24px;
+}
+
+.brand-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(102, 126, 234, 0.8);
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
+
+nav.scrolled .brand-tagline {
+    font-size: 10px;
+}
+
+.logo:hover .brand-name {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateX(5px);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Brand Badge/Accent */
+.brand-badge {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(240, 147, 251, 0.5);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ===================================================================
+   ENHANCED NAVIGATION LINKS WITH BRANDING
+   =================================================================== */
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+nav.scrolled .nav-links a {
+    color: #2d2d44;
+}
+
+/* Premium Hover Background */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.nav-links a:hover::before {
+    opacity: 1;
+}
+
+/* Premium Underline Effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 90%;
+}
+
+.nav-links a.active {
+    color: #667eea;
+    font-weight: 800;
+    background: rgba(102, 126, 234, 0.12);
+}
+
+nav.scrolled .nav-links a.active {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.15);
+}
+
+/* ===================================================================
+   HERO SECTION WITH LARGE BRANDED LOGO
+   =================================================================== */
+.hero-logo {
+    width: 280px;
+    height: auto;
+    margin-bottom: 50px;
+    filter: 
+        drop-shadow(0 15px 50px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 0 80px rgba(102, 126, 234, 0.6))
+        brightness(1.1);
+    animation: heroLogoFloat 4s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes heroLogoFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        filter: 
+            drop-shadow(0 15px 50px rgba(0, 0, 0, 0.5))
+            drop-shadow(0 0 80px rgba(102, 126, 234, 0.6))
+            brightness(1.1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+        filter: 
+            drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6))
+            drop-shadow(0 0 100px rgba(102, 126, 234, 0.8))
+            brightness(1.15);
+    }
+}
+
+/* Glow Ring Around Hero Logo */
+.hero-logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-logo-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(
+        circle, 
+        rgba(102, 126, 234, 0.4) 0%, 
+        rgba(118, 75, 162, 0.2) 40%, 
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: logoGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoGlowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* ===================================================================
+   BRANDED HERO TITLE
+   =================================================================== */
+.hero h1 {
+    font-size: 92px;
+    margin-bottom: 30px;
+    font-weight: 900;
+    text-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(255, 255, 255, 0.3),
+        0 0 100px rgba(102, 126, 234, 0.3);
+    letter-spacing: -3px;
+    line-height: 1;
+    animation: slideInDown 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+/* Add brand accent to title */
+.hero h1 .brand-accent {
+    background: linear-gradient(135deg, #ffffff 0%, #a8b8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* ===================================================================
+   FOOTER BRANDING
+   =================================================================== */
+footer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 40px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.12) 0%, transparent 50%);
+    animation: gradientShift 12s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.footer-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 35px;
+    filter: 
+        drop-shadow(0 8px 25px rgba(102, 126, 234, 0.6))
+        drop-shadow(0 0 50px rgba(102, 126, 234, 0.4))
+        brightness(1.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-logo:hover {
+    transform: scale(1.15) rotate(-8deg);
+    filter: 
+        drop-shadow(0 12px 40px rgba(102, 126, 234, 0.8))
+        drop-shadow(0 0 80px rgba(102, 126, 234, 0.6))
+        brightness(1.2);
+}
+
+/* Footer Brand Name */
+footer h3 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    animation: fadeIn 1s ease;
+}
+
+/* ===================================================================
+   BRANDED SECTION TITLES
+   =================================================================== */
+.section-title {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 80px;
+    color: #1a1a2e;
+    position: relative;
+    font-weight: 900;
+    letter-spacing: -2px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Large Background Text */
+.section-title::before {
+    content: attr(data-text);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 90px;
+    font-weight: 900;
+    z-index: -1;
+    letter-spacing: -3px;
+}
+
+/* Premium Underline */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+}
+
+/* ===================================================================
+   MOBILE RESPONSIVE - MAINTAIN LOGO PROMINENCE
+   =================================================================== */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 20px;
+    }
+    
+    nav.scrolled {
+        padding: 8px 20px;
+    }
+    
+    .logo {
+        gap: 12px;
+        padding: 5px 12px;
+    }
+    
+    .logo-img {
+        height: 65px;
+    }
+    
+    nav.scrolled .logo-img {
+        height: 55px;
+    }
+    
+    .brand-name {
+        font-size: 22px;
+    }
+    
+    nav.scrolled .brand-name {
+        font-size: 18px;
+    }
+    
+    .brand-tagline {
+        font-size: 9px;
+    }
+    
+    .hero-logo {
+        width: 200px;
+    }
+    
+    .hero h1 {
+        font-size: 52px;
+    }
+    
+    .section-title {
+        font-size: 42px;
+    }
+    
+    .section-title::before {
+        font-size: 58px;
+    }
+    
+    .footer-logo {
+        width: 120px;
+    }
+    
+    footer h3 {
+        font-size: 28px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .nav-links a {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 55px;
+    }
+    
+    nav.scrolled .logo-img {
+        height: 48px;
+    }
+    
+    .brand-container {
+        display: none;
+    }
+    
+    .hero-logo {
+        width: 160px;
+    }
+    
+    .hero h1 {
+        font-size: 38px;
+    }
+}
+
+/* ===================================================================
+   LOADING ANIMATIONS
+   =================================================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
