@@ -1,138 +1,126 @@
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Smooth scroll for anchor links (if any)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.feature-card, .menu-item, .contact-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-});
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+    console.log('Portfolio initialized');
+    
+    // Initialize all components in order
+    initThemeToggle();
+    initNavigation();
+    initMobileMenu();
+    initScrollEffects();
+    initTypewriter();
+    initProjectFiltering();
+    initGalleryFiltering();
+    initGalleryLightbox();
+    initCertificationFiltering();
+    initCertificateModal();
+    initContactForm();
+    initLoadingAnimations();
+    initParticles();
+    
+    // Smooth scroll for anchor links
+    initSmoothScroll();
+    
+    // Contact form input enhancements
+    initFormInputAnimations();
 });
 
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.feature-card, .menu-item, .contact-item, .detailed-menu-item, .spirit-card, .beer-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-
-    // Menu filter functionality
-    const filterButtons = document.querySelectorAll('.menu-nav-btn');
-    const menuSections = document.querySelectorAll('.detailed-menu-section');
-
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const category = this.getAttribute('data-category');
-
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-
-                // Filter menu sections
-                menuSections.forEach(section => {
-                    const sectionCategory = section.getAttribute('data-category');
-                    
-                    if (category === 'all') {
-                        section.style.display = 'block';
-                    } else if (sectionCategory && sectionCategory.includes(category)) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-
-                // Smooth scroll to first visible section
-                const firstVisibleSection = Array.from(menuSections).find(
-                    section => section.style.display !== 'none'
-                );
-                if (firstVisibleSection) {
-                    firstVisibleSection.scrollIntoView({
+// ===================================================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ===================================================================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            
+            if (targetId === '#') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ 
                         behavior: 'smooth',
                         block: 'start'
                     });
                 }
-            });
+            }
+        });
+    });
+}
+
+// ===================================================================
+// THEME TOGGLE FUNCTIONALITY
+// ===================================================================
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const body = document.body;
+    
+    if (!themeToggle && !mobileThemeToggle) return;
+    
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            updateToggleState(true);
+        } else {
+            body.classList.remove('dark-mode');
+            updateToggleState(false);
+        }
+        localStorage.setItem('theme', theme);
+    }
+    
+    function updateToggleState(isDark) {
+        const toggles = [themeToggle, mobileThemeToggle].filter(Boolean);
+        
+        toggles.forEach(toggle => {
+            const icon = toggle.querySelector('.theme-toggle-icon');
+            if (!icon) return;
+            
+            if (isDark) {
+                toggle.classList.add('active');
+                icon.className = 'theme-toggle-icon fas fa-moon';
+            } else {
+                toggle.classList.remove('active');
+                icon.className = 'theme-toggle-icon fas fa-sun';
+            }
         });
     }
-});
+    
+    function toggleTheme() {
+        const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.style.transition = 'all 0.3s ease';
+        setTheme(newTheme);
+        
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+        
+        showThemeNotification(newTheme);
+    }
+    
+    // Event listeners
+    themeToggle?.addEventListener('click', toggleTheme);
+    mobileThemeToggle?.addEventListener('click', toggleTheme);
+    
+    // Keyboard support
+    [themeToggle, mobileThemeToggle].forEach(toggle => {
+        if (toggle) {
+            toggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleTheme();
+                }
+            });
+        }
+    });
+}
+
+// Show theme change notification
+function showThemeNotification(theme) {
+    const notification = document.createElement('div');
+    notification.className = 'theme-notification';
