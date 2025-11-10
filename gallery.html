@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - The Express Eatery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="logo">
+            <img src="logo.jpeg" alt="The Express Eatery" class="logo-img">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="bar.html">Bar</a></li>
+            <li><a href="gallery.html" >Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="gallery-hero-overlay"></div>
+        <div class="gallery-hero-content">
+            <h1>📸 Our Gallery</h1>
+            <p>A glimpse into our vibrant atmosphere, delicious food, and happy moments</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter Navigation -->
+    <section class="gallery-filter-section">
+        <div class="gallery-filter-container">
+            <button class="gallery-filter-btn active" data-filter="all">
+                <i class="fas fa-th"></i> All
+            </button>
+            <button class="gallery-filter-btn" data-filter="food">
+                <i class="fas fa-utensils"></i> Food
+            </button>
+            <button class="gallery-filter-btn" data-filter="drinks">
+                <i class="fas fa-cocktail"></i> Drinks
+            </button>
+            <button class="gallery-filter-btn" data-filter="ambience">
+                <i class="fas fa-couch"></i> Ambience
+            </button>
+            <button class="gallery-filter-btn" data-filter="events">
+                <i class="fas fa-calendar-day"></i> Events
+            </button>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <!-- Food Images -->
+            <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="1.jpeg" alt="Mustang Aloo">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Mustang Aloo</h3>
+                        
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(0)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="2.jpeg" alt="Dragon Chicken">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Dragon Chicken</h3>
+                          
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(1)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="5.jpeg" alt="Hara Bhara Kabab">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Hara Bhara Kabab</h3>
+                
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(2)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="6.jpeg" alt="😋">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>😋</h3>
+                            
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(3)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drinks Images -->
+            <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="4.jpeg" alt="Sandheko Momo">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Sandheko Momo</h3>
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(4)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="7.jpeg" alt="Chilly Momo">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Chilly Momo</h3>
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(6)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+             <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="8.jpeg" alt="Spring Roll">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Spring Roll</h3>
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(6)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+           
+             <div class="gallery-item" data-category="food">
+                <div class="gallery-image">
+                    <img src="11.jpeg" alt="Chatpate">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Chatpate</h3>                       
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(6)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ambience Images -->
+            <div class="gallery-item" data-category="ambience">
+                <div class="gallery-image">
+                    <img src="13.jpeg" alt="Restaurant Exterior">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>🏠 Cool Exterior</h3>
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(7)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="ambience">
+                <div class="gallery-image">
+                    <img src="12.jpeg" alt="Bar Area">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>🍸 Bar Lounge</h3>
+                        </div>
+                        <button class="gallery-zoom-btn" onclick="openLightbox(8)">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+       
+
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-prev" onclick="changeImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-next" onclick="changeImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-image-container">
+                <img id="lightbox-img" src="" alt="Gallery Image">
+                <div class="lightbox-caption">
+                    <h3 id="lightbox-title">Image Title</h3>
+                    <p id="lightbox-description">Image description</p>
+                </div>
+            </div>
+            <div class="lightbox-counter">
+                <span id="current-image">1</span> / <span id="total-images">16</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Visit Us & Experience It Yourself</h2>
+        <p>Come and create your own memories at The Express Eatery</p>
+        <button class="cta-button" onclick="window.location.href='contact.html'">Find Us</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="logo.jpeg" alt="The Express Eatery" class="footer-logo">
+        <h3>The Express Eatery</h3>
+        <p style="margin: 20px 0;">Your morning coffee, your study spot, your evening hangout.</p>
+        <p>📍 Gyaneshwor Marg, Kathmandu 44600 | 📞 9805689082 | 📧 expresseaterycafe@gmail.com</p>
+        <p style="margin-top: 20px; opacity: 0.7;">© 2025 The Express Eatery. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>
