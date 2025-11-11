@@ -1494,14 +1494,6 @@ nav {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 
-        0 10px 40px rgba(102, 126, 234, 0.15),
-        0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px 60px;
-    border-bottom: 2px solid rgba(102, 126, 234, 0.15);
-}
 
 /* ===================================================================
    LARGE, PROMINENT LOGO WITH BRANDING
@@ -1567,21 +1559,8 @@ nav.scrolled {
     cursor: pointer;
 }
 
-nav.scrolled .logo-img {
-    height: 70px;
-    filter: 
-        drop-shadow(0 4px 15px rgba(102, 126, 234, 0.35))
-        drop-shadow(0 0 30px rgba(102, 126, 234, 0.15))
-        brightness(1.05);
-}
 
-.logo:hover .logo-img {
-    transform: scale(1.08) rotate(-3deg);
-    filter: 
-        drop-shadow(0 8px 30px rgba(102, 126, 234, 0.6))
-        drop-shadow(0 0 60px rgba(102, 126, 234, 0.4))
-        brightness(1.1);
-}
+
 
 /* Logo Image Animation on Load */
 @keyframes logoEntrance {
@@ -1639,9 +1618,7 @@ nav.scrolled .brand-name {
     animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
 }
 
-nav.scrolled .brand-tagline {
-    font-size: 10px;
-}
+
 
 .logo:hover .brand-name {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
@@ -1711,9 +1688,7 @@ nav.scrolled .brand-tagline {
     text-transform: uppercase;
 }
 
-nav.scrolled .nav-links a {
-    color: #2d2d44;
-}
+
 
 /* Premium Hover Background */
 .nav-links a::before {
@@ -2003,9 +1978,7 @@ footer h3 {
         height: 65px;
     }
     
-    nav.scrolled .logo-img {
-        height: 55px;
-    }
+    
     
     .brand-name {
         font-size: 22px;
