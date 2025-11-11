@@ -2112,10 +2112,10 @@ footer h3 {
     color: #fff !important; /* Solid white on hover */
 }
 
-/* ===================================================================
+/*===================================================================
     Underline Effect
    =================================================================== */
-   /* .navbar-custom .navbar-nav .nav-link{
+   .navbar-custom .navbar-nav .nav-link{
     position: relative;
    }
    .navbar-custom .navbar-nav .nav-link::after{
@@ -2133,4 +2133,8 @@ footer h3 {
 }
 .navbar-custom.scrolled .navbar-nav .nav-link::after {
     background: #667eea;
-} */
+}
+.navbar-custom.scrolled .navbar-toggler{
+    border-color: black;
+    background-color: black;
+}
