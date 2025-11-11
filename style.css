@@ -62,6 +62,9 @@ nav.scrolled .logo-img {
 nav.scrolled .nav-links a {
     color: #333;
 }
+nav a{
+    text-decoration: none;
+}
 
 .nav-links a::after {
     content: '';
