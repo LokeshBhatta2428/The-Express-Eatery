@@ -5,26 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - The Express Eatery</title>
     <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 <!-- Enhanced Navigation with Branding -->
-<nav id="navbar" class="scrolled">
-    <div class="logo">
-        <img src="logo.jpeg" alt="The Express Eatery" class="logo-img">
-        <div class="brand-container">
-            <div class="brand-name">The Express Eatery</div>
-            <div class="brand-tagline">Café • Dine • Unwind</div>
-           
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+<div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <div class="logo-wrap d-flex align-items-center justify-content-center me-3">
+          <img src="logo.jpeg" alt="Express Eatery logo" class="logo-img">
         </div>
-    </div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="bar.html">Bar</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+        <div class="brand-text d-none d-sm-block">
+          <div class="brand-name">The Express Eatery</div>
+          <div class="brand-tagline">Cafe • Dine • Unwind</div>
+        </div>
+      </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link text-uppercase fw-semibold px-3" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase fw-semibold px-3" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase fw-semibold px-3" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase fw-semibold px-3" href="bar.html">Bar</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase fw-semibold px-3" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase fw-semibold px-3" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+</div>
 </nav>
 
 
